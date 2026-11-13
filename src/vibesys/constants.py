@@ -17,6 +17,7 @@ class DomainName(StrEnum):
     DATABASE = "database"
     KERNEL_WRITING = "kernel-writing"
     CLI_TOOLS = "cli-tools"
+    FPGA_HLS = "fpga-hls"
 
 
 DEFAULT_COMPUTE_BACKEND = ComputeBackend.CUDA

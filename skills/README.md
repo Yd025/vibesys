@@ -26,6 +26,7 @@ Every plugin installs from the one source directory and differs only by the skil
 | `vibesys-kernels-rocm` | `kernel-correctness`, `kernel-performance`, `kernel-rocprof-analysis` |
 | `vibesys-kernels-trainium` | `kernel-correctness`, `kernel-performance`, the Neuron NKI pack |
 | `vibesys-cli-tools` | `cli-tool-optimization` |
+| `vibesys-fpga-hls` | `fpga-hls-workflow`, `fpga-hls-feasibility`, `fpga-llm-operators`, the AMD Vitis HLS pack |
 
 Inside a Claude Code session (2.1.275 or later) each plugin also installs in one step, with no separate
 `marketplace add`:
@@ -39,6 +40,7 @@ Inside a Claude Code session (2.1.275 or later) each plugin also installs in one
 /plugin install vibesys-kernels-rocm --marketplace uw-syfi/vibesys
 /plugin install vibesys-kernels-trainium --marketplace uw-syfi/vibesys
 /plugin install vibesys-cli-tools --marketplace uw-syfi/vibesys
+/plugin install vibesys-fpga-hls --marketplace uw-syfi/vibesys
 ```
 
 Install `vibesys` plus the domain plugin the task needs, chosen by the task's `[agent] domain` and
@@ -99,7 +101,7 @@ short section in the harness file.
 
 ## Layout
 
-- `domains/`: domain skills for kernels, LLM serving, microservices, Tokio services, native
+- `domains/`: domain skills for kernels, FPGA HLS, LLM serving, microservices, Tokio services, native
   command-line tools and Neuron. Both the plugin and VibeSys runs use them: a run reads only this tree, and the
   sidecar in it decides which skills a run installs for its backend and domain
   ([skill metadata](../docs/contributing/skill-metadata.md)).

@@ -41,3 +41,15 @@ domains = ["microservices"]
 path = "cli-tool-optimization"
 backends = ["cpu"]
 domains = ["cli-tools"]
+
+[[rule]]
+path = "fpga-hls-workflow"
+domains = ["fpga-hls"]
+
+[[rule]]
+path = "fpga-hls-feasibility"
+domains = ["fpga-hls"]
+
+[[rule]]
+path = "fpga-llm-operators"
+domains = ["fpga-hls"]

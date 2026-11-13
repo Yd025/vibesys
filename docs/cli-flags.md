@@ -721,6 +721,7 @@ context for the agent and evolve loops. The registered domains are:
 | `database` | In-place optimization of a vendored database or dataflow engine, judged by output equivalence against a pristine copy of the same engine. Loads the dial9 Tokio trace skills. |
 | `kernel-writing` | Compute-kernel implementation and optimization against the task's reference, accuracy checker and scored benchmark. Loads the kernel skills; `auto` selects NCU on CUDA and rocprof on ROCm when the run environment supports it. |
 | `cli-tools` | Native command-line program optimization on CPU: observable-behavior preservation, task-owned build, correctness and measurement commands, and CPU profiling guidance. `auto` selects the host's native CPU profiler; no accelerator profiler applies. |
+| `fpga-hls` | FPGA accelerators written in Vitis HLS C++: correctness, feasibility on the task's target device and clock, and the task's measured performance. Loads the FPGA HLS skills. |
 | `generic` | No extra domain guidance. Useful for custom/non-LLM targets. |
 
 Each input bundle must declare `[agent].domain`; there is no CLI override for a
@@ -943,7 +944,7 @@ Required flags:
 | Flag | Maps to |
 | --- | --- |
 | `--input-objective TEXT` or `--input-objective-file PATH` | `.vibesys/tasks/default/OBJECTIVE.md` |
-| `--input-domain {llm-serving,generic,microservices,database,kernel-writing,cli-tools}` | `[agent].domain` |
+| `--input-domain {llm-serving,generic,microservices,database,kernel-writing,cli-tools,fpga-hls}` | `[agent].domain` |
 | `--input-accuracy-command CMD` | `[accuracy].command` (shell-quoted argv) |
 | `--input-benchmark-command CMD` | `[benchmark].command` (shell-quoted argv) |
 
