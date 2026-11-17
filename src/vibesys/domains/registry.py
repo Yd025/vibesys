@@ -8,6 +8,7 @@ from vibesys.constants import DomainName
 from vibesys.domains import (
     cli_tools,
     database,
+    fpga_hls,
     generic,
     kernel_writing,
     llm_serving,
@@ -24,6 +25,7 @@ DOMAINS: dict[DomainName, DomainDefinition] = {
     database.DEFINITION.name: database.DEFINITION,
     kernel_writing.DEFINITION.name: kernel_writing.DEFINITION,
     cli_tools.DEFINITION.name: cli_tools.DEFINITION,
+    fpga_hls.DEFINITION.name: fpga_hls.DEFINITION,
 }
 
 

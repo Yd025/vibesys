@@ -59,6 +59,7 @@ def test_registered_domains_present() -> None:
     assert "database" in names
     assert "kernel-writing" in names
     assert "cli-tools" in names
+    assert "fpga-hls" in names
     assert "README" not in names  # the authoring guide is not a domain
 
 
@@ -145,6 +146,21 @@ def test_cli_tools_sections_do_not_depend_on_the_run_context() -> None:
         assert bare == full
 
 
+def test_fpga_hls_domain_renders_its_roles_and_derives_single_agent() -> None:
+    domain = resolve_domain(DomainName.FPGA_HLS)
+    implementer = render_domain_section(domain, DomainRole.IMPLEMENTER)
+    judge = render_domain_section(domain, DomainRole.JUDGE)
+    orchestrator = render_domain_section(domain, DomainRole.ORCHESTRATOR)
+    single_agent = render_domain_section(domain, DomainRole.SINGLE_AGENT)
+
+    assert domain.prompt_dir.parent.name == "fpga_hls"
+    assert "infeasible" in implementer
+    assert "target clock" in judge
+    assert orchestrator
+    assert single_agent == f"{implementer}\n\n{judge}"
+    assert not render_domain_section(domain, DomainRole.PROFILER)
+
+
 def test_resolve_path_is_not_supported(tmp_path: Path) -> None:
     f = tmp_path / "mine"
     f.mkdir()
@@ -162,6 +178,7 @@ def test_domains_declare_torch_profiler_compatibility() -> None:
     assert not DOMAINS[DomainName.DATABASE].supports_torch_profiler
     assert not DOMAINS[DomainName.KERNEL_WRITING].supports_torch_profiler
     assert not DOMAINS[DomainName.CLI_TOOLS].supports_torch_profiler
+    assert not DOMAINS[DomainName.FPGA_HLS].supports_torch_profiler
 
 
 def test_resolve_unknown_raises() -> None:

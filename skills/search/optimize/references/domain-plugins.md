@@ -13,6 +13,7 @@ The domain skills ship in their own plugins. Read `[agent] domain` and `backends
 | `domain = "kernel-writing"`, backend `trainium` | `vibesys-kernels-trainium` | `kernel-performance` |
 | `domain = "kernel-writing"`, any other backend | any kernels plugin, such as `vibesys-kernels-cuda` | `kernel-performance` |
 | `domain = "cli-tools"` | `vibesys-cli-tools` | `cli-tool-optimization` |
+| `domain = "fpga-hls"` | `vibesys-fpga-hls` | `fpga-hls-workflow` |
 
 A `cli-tools` task targets the `cpu` backend, so it needs `vibesys-cli-tools` and no backend
 plugin. A `llm-serving` task on backend `trainium` needs both `vibesys-llm-serving` and

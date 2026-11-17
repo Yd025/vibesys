@@ -351,6 +351,7 @@ def test_the_committed_plugin_table_lists_the_expected_plugins() -> None:
         "vibesys-kernels-rocm",
         "vibesys-kernels-trainium",
         "vibesys-cli-tools",
+        "vibesys-fpga-hls",
     ]
 
 
