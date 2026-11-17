@@ -2,12 +2,10 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-
 from vibesys.constants import DomainName
-from vibesys.domains.base import DomainDefinition
+from vibesys.domains.base import DomainDefinition, prompt_dir_beside
 
 DEFINITION = DomainDefinition(
     name=DomainName.FPGA_HLS,
-    prompt_dir=Path(__file__).resolve().parent / "prompts",
+    prompt_dir=prompt_dir_beside(__file__),
 )
